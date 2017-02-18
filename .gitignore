@@ -5,6 +5,7 @@ node_modules
 
 # production
 build
+src/components/*.css
 
 # misc
 .DS_Store

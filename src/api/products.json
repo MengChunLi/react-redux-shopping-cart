@@ -1,5 +1,5 @@
 [
-  {"id": 1, "title": "iPad 4 Mini", "price": 500.01, "inventory": 2},
-  {"id": 2, "title": "H&M T-Shirt White", "price": 10.99, "inventory": 10},
-  {"id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5}
+	{ "id": 1, "title": "iPad 4 Mini", "price": 500.01, "inventory": 2, "img": "https://goo.gl/3PD40E" },
+	{ "id": 2, "title": "H&M T-Shirt White", "price": 10.99, "inventory": 10, "img": "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=caf982797b3e3b7eaeb9a1f00915c8d4" },
+	{ "id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5, "img": "https://images.unsplash.com/photo-1483495068880-bebf922d5a27?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=ace5bd6dc78499369dcdd4a147bdcd47" }
 ]

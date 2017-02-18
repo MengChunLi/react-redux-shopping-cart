@@ -4,20 +4,28 @@
   "private": true,
   "devDependencies": {
     "enzyme": "^2.4.1",
+    "node-sass": "^4.5.0",
+    "npm-run-all": "^4.0.1",
     "react-addons-test-utils": "^15.3.0",
     "react-scripts": "^0.6.0"
   },
   "dependencies": {
+    "material-ui": "^0.17.0",
+    "normalize.css": "^5.0.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
     "eject": "react-scripts eject",
     "test": "react-scripts test"
   }

@@ -8,21 +8,21 @@ import reducer from './reducers'
 import { getAllProducts } from './actions'
 import App from './containers/App'
 
-const middleware = [ thunk ];
+const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger());
+	middleware.push(createLogger());
 }
 
 const store = createStore(
-  reducer,
-  applyMiddleware(...middleware)
+	reducer,
+	applyMiddleware(...middleware)
 )
 
 store.dispatch(getAllProducts())
 
 render(
-  <Provider store={store}>
+	<Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+	document.getElementById('root')
 )
