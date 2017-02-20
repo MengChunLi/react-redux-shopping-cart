@@ -1,21 +1,16 @@
-.Product {
+.ProductCart {
+    display: flex;
+
     .prodImg {
         display: block;
-        width: 100%;
+        width: 100px;
         height: 180px;
         background-repeat: no-repeat;
         background-position: 50% center;
         background-size: cover;
     }
-    .btmBox {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 5px 8px;
-    }
     .prodTitle {
         font-size: 16px;
-        color: white;
         margin: 0;
     }
     .price {

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import './Product.css'
 
 const Product = ({ price, quantity, title, inventory, img }) => (
-  <div>
+  <div className="Product">
     <div className="prodImg" style={{backgroundImage: `url(${img})`}} />
     <div className="btmBox">
       <h2 className="prodTitle">{title}</h2>

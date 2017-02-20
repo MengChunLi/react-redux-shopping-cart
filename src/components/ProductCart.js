@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
-import './Product.css'
+import './ProductCart.css'
 
-const ProductList = ({ price, quantity, title, inventory, img }) => (
-  <div className="prodList">
+const ProductCart = ({ price, quantity, title, inventory, img }) => (
+  <div className="ProductCart">
     <div className="prodImg" style={{backgroundImage: `url(${img})`}} />
     <div className="rightBox">
       <h2 className="prodTitle">{title}</h2>
@@ -12,11 +12,11 @@ const ProductList = ({ price, quantity, title, inventory, img }) => (
   </div>
 )
 
-Product.propTypes = {
+ProductCart.propTypes = {
   price: PropTypes.number,
   quantity: PropTypes.number,
   title: PropTypes.string,
   img: PropTypes.string
 }
 
-export default Product
+export default ProductCart
