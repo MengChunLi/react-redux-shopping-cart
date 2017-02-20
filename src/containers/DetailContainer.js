@@ -3,11 +3,14 @@ import { connect } from 'react-redux'
 import { addToCart } from '../actions'
 import { getProduct } from '../reducers/products'
 import ProductItem from '../components/ProductItem'
+import Wrapper from './Wrapper'
 
 const DetailContainer = ({ product }) => (
+  <Wrapper selectedIndex={0}>
   <ProductItem
     product={product}
     onAddToCartClicked={() => addToCart(product.id)} />
+    </Wrapper>
 )
 
 DetailContainer.propTypes = {

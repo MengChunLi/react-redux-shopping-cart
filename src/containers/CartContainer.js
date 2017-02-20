@@ -2,13 +2,16 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { checkout } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
+import Wrapper from './Wrapper'
 import Cart from '../components/Cart'
 
 const CartContainer = ({ products, total, checkout }) => (
-  <Cart
-    products={products}
-    total={total}
-    onCheckoutClicked={() => checkout(products)} />
+  <Wrapper selectedIndex={1}>
+    <Cart
+      products={products}
+      total={total}
+      onCheckoutClicked={() => checkout(products)} />
+  </Wrapper>
 )
 
 CartContainer.propTypes = {
@@ -28,6 +31,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(
-  mapStateToProps,
-  { checkout }
+  mapStateToProps, { checkout }
 )(CartContainer)

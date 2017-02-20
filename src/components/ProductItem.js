@@ -13,21 +13,17 @@ const ProductItem = ({ product, onAddToCartClicked }) => (
         price={product.price}
         inventory={product.inventory}
         onAddToCartClicked={onAddToCartClicked} />
-        <RaisedButton
-          className="addToCart"
-          backgroundColor="#fb5769"
-          icon={<i className="material-icons md-light">shopping_cart</i>}
-          label={product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
-          labelStyle={{color: 'white'}}
-          onClick={onAddToCartClicked}
-          disabled={product.inventory > 0 ? '' : 'disabled'}>
-      </RaisedButton>
-    </Link>
+      </Link>
+      <RaisedButton
+        className="addToCart"
+        backgroundColor="#fb5769"
+        icon={<i className="material-icons md-light">shopping_cart</i>}
+        label={product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
+        labelStyle={{color: 'white'}}
+        onClick={onAddToCartClicked}
+        disabled={product.inventory > 0 ? '' : 'disabled'}>
+    </RaisedButton>
   </div>
-)
-
-const Icon = () => (
-  <i className="material-icons md-light">shopping_cart</i>
 )
 
 ProductItem.propTypes = {
