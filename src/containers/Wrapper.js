@@ -32,11 +32,11 @@ class Wrapper extends React.Component {
     return (
       <div className="container" style={{height}}>
         <TopBarContainer />
-        {children}
+        <div style={{overflow: 'auto'}}>{children}</div>
         <div className="bottom">
           <BottomNavigation selectedIndex={selectedIndex}>
             <BottomNavigationItem onTouchTap={() => browserHistory.push('/')} icon={<FontIcon className="material-icons md-light">home</FontIcon>} label="home"/>
-            <BottomNavigationItem onTouchTap={() => browserHistory.push('/cart')} icon={<BadgeCartTab color={selectedIndex === 1 ? "rgb(0, 188, 212)" : "rgba(0, 0, 0, 0.54)"} cartItemLen={cartItemLen}/>} label="cart"/>
+            <BottomNavigationItem onTouchTap={() => browserHistory.push('/cart')} icon={<BadgeCartTab color={selectedIndex === 1 ? "black" : "rgba(0, 0, 0, 0.54)"} cartItemLen={cartItemLen}/>} label="cart"/>
           </BottomNavigation>
         </div>
       </div>

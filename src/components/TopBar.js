@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
 import { browserHistory, Link } from 'react-router'
+import muiThemeable from 'material-ui/styles/muiThemeable';
 import AppBar from 'material-ui/AppBar'
 import BadgeCart from './BadgeCart'
 import './TopBar.css'
 
-const TopBar = ({ cartItemLen }) => {
+const TopBar = ({ cartItemLen, muiTheme }) => {
   return (
-    <AppBar style={{cursor: 'pointer'}} className="appBar" title="Shopping go" onTitleTouchTap={() => browserHistory.push('/')}>
+    <AppBar style={{cursor: 'pointer', backgroundColor: muiTheme.palette.primary1Color}} className="appBar" title="Shopping go" onTitleTouchTap={() => browserHistory.push('/')}>
       <Link to='/cart'>
         <BadgeCart cartItemLen={cartItemLen} />
       </Link>
@@ -14,4 +15,4 @@ const TopBar = ({ cartItemLen }) => {
   )
 }
 
-export default TopBar
+export default muiThemeable()(TopBar)
