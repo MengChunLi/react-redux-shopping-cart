@@ -17,10 +17,24 @@ const addToCartUnsafe = productId => ({
   productId
 })
 
-export const addToCart = productId => (dispatch, getState) => {
+export const addToCart = (e, productId) => (dispatch, getState) => {
+  e.preventDefault()
+    // e.stopPropagation()
   if (getState().products.byId[productId].inventory > 0) {
     dispatch(addToCartUnsafe(productId))
   }
+}
+
+const seeDetailProduct = detail => ({
+  type: types.SEE_DETAIL,
+  detail
+})
+
+export const seeDetail = productId => (dispatch, getState) => {
+  shop.getDetail(productId, (detail) => {
+    console.log(detail);
+    dispatch(seeDetailProduct(detail))
+  })
 }
 
 export const checkout = products => (dispatch, getState) => {
@@ -31,10 +45,10 @@ export const checkout = products => (dispatch, getState) => {
   })
   shop.buyProducts(products, () => {
     dispatch({
-      type: types.CHECKOUT_SUCCESS,
-      cart
-    })
-    // Replace the line above with line below to rollback on failure:
-    // dispatch({ type: types.CHECKOUT_FAILURE, cart })
+        type: types.CHECKOUT_SUCCESS,
+        cart
+      })
+      // Replace the line above with line below to rollback on failure:
+      // dispatch({ type: types.CHECKOUT_FAILURE, cart })
   })
 }

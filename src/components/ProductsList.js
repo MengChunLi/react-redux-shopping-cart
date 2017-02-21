@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import GridList from 'material-ui/GridList'
 
 const ProductsList = ({ title, children }) => (
-  <div style={{marginTop: 15}}>
+  <div style={{marginTop: 8}}>
     <GridList>{children}</GridList>
   </div>
 )

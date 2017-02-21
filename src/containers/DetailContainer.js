@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addToCart } from '../actions'
-import { getProduct } from '../reducers/products'
+import { getProduct } from '../reducers'
 import ProductItem from '../components/ProductItem'
 import Wrapper from './Wrapper'
 
@@ -22,7 +22,10 @@ DetailContainer.propTypes = {
   }).isRequired
 }
 
-const mapStateToProps = (state, ownProps) => ({ product: getProduct(state.products, ownProps.params.productId) })
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return { product: state.detail }
+}
 
 export default connect(
   mapStateToProps

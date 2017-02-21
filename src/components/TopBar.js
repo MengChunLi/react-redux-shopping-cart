@@ -1,12 +1,15 @@
 import React, { PropTypes } from 'react'
+import { browserHistory, Link } from 'react-router'
 import AppBar from 'material-ui/AppBar'
 import BadgeCart from './BadgeCart'
 import './TopBar.css'
 
 const TopBar = ({ cartItemLen }) => {
   return (
-    <AppBar className="appBar" title="Shopping go">
-      <BadgeCart cartItemLen={cartItemLen} />
+    <AppBar style={{cursor: 'pointer'}} className="appBar" title="Shopping go" onTitleTouchTap={() => browserHistory.push('/')}>
+      <Link to='/cart'>
+        <BadgeCart cartItemLen={cartItemLen} />
+      </Link>
     </AppBar>
   )
 }

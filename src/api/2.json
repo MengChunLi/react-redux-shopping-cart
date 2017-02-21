@@ -1,0 +1,8 @@
+{
+	"id": 1,
+	"title": "iPad 4 Mini",
+	"price": 500.01,
+	"inventory": 2,
+	"img": "https://goo.gl/3PD40E",
+	"content": "This tutorial is the final of a three-part series by Brad Westfall. We'll learn how to manage state across an entire application efficiently and in a way that can scale without dangerous complexity. We've come so far in our React journey, it's worth making it across the finish line here and getting the full bang-for-our-buck out of this development approach."
+}

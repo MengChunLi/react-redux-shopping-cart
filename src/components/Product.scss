@@ -1,4 +1,16 @@
+@mixin linearGradient($top, $bottom) {
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $top), color-stop(100%, $bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $top 0%, $bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $top 0%, $bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $top 0%, $bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom, $top 0%, $bottom 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0); /* IE6-9 */
+}
 .Product {
+    overflow: hidden;
+
     .prodImg {
         display: block;
         width: 100%;
@@ -8,17 +20,30 @@
         background-size: cover;
     }
     .btmBox {
+        width: 100%;
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 5px 8px;
+        @include linearGradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
     }
     .prodTitle {
-        font-size: 16px;
+        font-size: 14px;
         color: white;
-        margin: 0;
+        margin: 3px 5px;
+    }
+    .priceBox {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
     }
     .price {
+        font-size: 11px;
+        color: white;
+    }
+    .inventory {
+        font-size: 11px;
         color: white;
     }
 }

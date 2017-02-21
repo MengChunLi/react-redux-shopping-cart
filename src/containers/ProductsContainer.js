@@ -1,17 +1,20 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addToCart } from '../actions'
+import { Link } from 'react-router'
+import { addToCart, seeDetail } from '../actions'
 import { getVisibleProducts } from '../reducers/products'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
-const ProductsContainer = ({ products, addToCart }) => (
+const ProductsContainer = ({ products, addToCart, seeDetail }) => (
   <ProductsList title="Products">
       {products.map(product =>
+        <Link to={`/detail/${product.id}`} onClick={() => seeDetail(product.id)}>
         <ProductItem
           key={product.id}
           product={product}
-          onAddToCartClicked={() => addToCart(product.id)} />
+          onAddToCartClicked={(e) => addToCart(e, product.id)} />
+        </Link>
       )}
     </ProductsList>
 )
@@ -26,9 +29,12 @@ ProductsContainer.propTypes = {
   addToCart: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-  products: getVisibleProducts(state.products)
-})
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    products: getVisibleProducts(state.products)
+  }
+}
 
 export default connect(
   mapStateToProps, { addToCart }

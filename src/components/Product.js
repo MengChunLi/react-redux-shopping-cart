@@ -6,8 +6,10 @@ const Product = ({ price, quantity, title, inventory, img }) => (
     <div className="prodImg" style={{backgroundImage: `url(${img})`}} />
     <div className="btmBox">
       <h2 className="prodTitle">{title}</h2>
-      <span className="price">{price}</span>
-      <span className="quantity">{quantity ? ` x ${quantity}` : null}</span>
+      <div className="priceBox">
+        <span className="inventory">only {inventory} left</span>
+        <span className="price">{`\$ ${price}`}</span>
+      </div>
     </div>
   </div>
 )
