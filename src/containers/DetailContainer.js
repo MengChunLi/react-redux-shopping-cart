@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addToCart } from '../actions'
-import { getProduct } from '../reducers'
 import ProductItem from '../components/ProductItem'
 import Wrapper from './Wrapper'
 
-const DetailContainer = ({ product }) => (
+const DetailContainer = ({ product, addToCart }) => (
   <Wrapper selectedIndex={0}>
   <ProductItem
     product={product}
-    onAddToCartClicked={() => addToCart(product.id)} />
+    onAddToCartClicked={(e) => addToCart(e, product.id)} />
     </Wrapper>
 )
 
@@ -19,14 +18,14 @@ DetailContainer.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  addToCart: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state);
+const mapStateToProps = (state) => {
   return { product: state.detail }
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps, { addToCart }
 )(DetailContainer)

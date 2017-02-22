@@ -1,8 +1,1 @@
-{
-	"id": 1,
-	"title": "iPad 4 Mini",
-	"price": 500.01,
-	"inventory": 2,
-	"img": "https://goo.gl/3PD40E",
-	"content": "This tutorial is the final of a three-part series by Brad Westfall. We'll learn how to manage state across an entire application efficiently and in a way that can scale without dangerous complexity. We've come so far in our React journey, it's worth making it across the finish line here and getting the full bang-for-our-buck out of this development approach."
-}
+{ "id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5, "img": "https://images.unsplash.com/photo-1483495068880-bebf922d5a27?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=ace5bd6dc78499369dcdd4a147bdcd47" }

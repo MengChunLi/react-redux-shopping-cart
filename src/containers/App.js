@@ -34,6 +34,7 @@ injectTapEventPlugin();
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: '#000',
+    accent1Color: '#00AA5B',
     textColor: "#333",
   },
   appBar: {
@@ -48,7 +49,7 @@ const App = () => (
         <Route path="/" component={Home} />
         <Route path="/home" component={Home} />
         <Route path="/cart" component={CartContainer} />
-        <Route path="/detail/:productId" component={DetailContainer} onEnter={store.dispatch(seeDetail(1))}/>
+        <Route path="/detail/:productId" component={DetailContainer} onEnter={nextState => store.dispatch(seeDetail(nextState.params.productId))}/>
       </Router>
     </MuiThemeProvider>
   </Provider>

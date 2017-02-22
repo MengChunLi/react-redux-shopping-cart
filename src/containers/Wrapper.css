@@ -2,11 +2,16 @@ body {
   font-family: 'Roboto', sans-serif; }
 
 h1 {
-  font-family: 'Sansita', sans-serif; }
+  font-family: 'Righteous', sans-serif; }
 
 .container {
   position: relative;
-  height: 700px; }
+  height: 700px;
+  overflow: hidden; }
+
+.content {
+  margin-bottom: 50px;
+  overflow: auto; }
 
 .bottom {
   position: absolute;

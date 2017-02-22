@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import RaisedButton from 'material-ui/RaisedButton'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Product from './Product'
 import './ProductItem.css'

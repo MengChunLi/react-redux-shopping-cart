@@ -27,4 +27,8 @@ const Icon = () => (
   </IconButton>
 )
 
+BadgeCart.PropTypes = {
+  cartItemLen: PropTypes.number
+}
+
 export default BadgeCart

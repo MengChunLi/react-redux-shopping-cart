@@ -7,9 +7,10 @@ import prod2 from './2.json'
 import prod3 from './3.json'
 
 const TIMEOUT = 100
+const FILES = [prod1, prod2, prod3]
 
 export default {
-  getDetail: (productId, cb, timeout) => setTimeout(() => cb(prod1), timeout || TIMEOUT),
+  getDetail: (productId, cb, timeout) => setTimeout(() => cb(FILES[productId - 1]), timeout || TIMEOUT),
   getProducts: (cb, timeout) => setTimeout(() => cb(_products), timeout || TIMEOUT),
   buyProducts: (payload, cb, timeout) => setTimeout(() => cb(), timeout || TIMEOUT)
 }

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import IconButton from 'material-ui/IconButton'
 import Badge from 'material-ui/Badge'
 import FontIcon from 'material-ui/FontIcon'
 
@@ -28,5 +27,10 @@ const BadgeCartTab = ({ cartItemLen, color }) => {
 const Icon = ({ color }) => (
   <FontIcon className="material-icons" color={color}>shopping_cart</FontIcon>
 )
+
+BadgeCartTab.PropTypes = {
+  cartItemLen: PropTypes.number,
+  color: PropTypes.string
+}
 
 export default BadgeCartTab

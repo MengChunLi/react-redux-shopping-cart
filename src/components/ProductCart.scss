@@ -30,12 +30,12 @@
     .rightBtmBox {
         display: flex;
         justify-content: space-between;
+        align-content: center;
     }
     .price {
-        font-size: 13px;
-    }
-    .quantity {
-        font-size: 13px;
-        color: "#ddd"
+        font-size: 15px;
+        color: #D01345;
+        font-weight: 800;
+        margin-top: 5px;
     }
 }

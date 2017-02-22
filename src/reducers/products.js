@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_PRODUCTS, ADD_TO_CART, SEE_DETAIL } from '../constants/ActionTypes'
+import { RECEIVE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QTY } from '../constants/ActionTypes'
 
 const products = (state, action) => {
   switch (action.type) {
@@ -7,6 +7,16 @@ const products = (state, action) => {
       return {
         ...state,
         inventory: state.inventory - 1
+      }
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        inventory: state.inventory + action.qty //刪除購物車內的商品，把庫存數量加回去
+      }
+    case CHANGE_QTY:
+      return {
+        ...state,
+        inventory: state.inventory - action.qtyDiff //改變購物車商品數量，要修改庫存
       }
     default:
       return state

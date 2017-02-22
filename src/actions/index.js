@@ -25,13 +25,14 @@ export const addToCart = (e, productId) => (dispatch, getState) => {
   }
 }
 
-const removeFromCartAction = productId => ({
+const removeFromCartAction = (productId, qty) => ({
   type: types.REMOVE_FROM_CART,
-  productId
+  productId,
+  qty
 })
 
-export const removeFromCart = (productId) => (dispatch) => {
-  dispatch(removeFromCartAction(productId))
+export const removeFromCart = (productId) => (dispatch, getState) => {
+  dispatch(removeFromCartAction(productId, getState().cart.quantityById[productId]))
 }
 
 const seeDetailProduct = detail => ({
@@ -39,10 +40,18 @@ const seeDetailProduct = detail => ({
   detail
 })
 
-export const seeDetail = productId => (dispatch, getState) => {
+export const seeDetail = productId => (dispatch) => {
   shop.getDetail(productId, (detail) => {
-    console.log(detail);
     dispatch(seeDetailProduct(detail))
+  })
+}
+
+export const changeQty = (productId, qty) => (dispatch, getState) => {
+  const qtyDiff = qty - getState().cart.quantityById[productId] //選取的數量 - 原本的數量
+  dispatch({
+    type: types.CHANGE_QTY,
+    productId,
+    qtyDiff
   })
 }
 

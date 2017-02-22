@@ -7,12 +7,23 @@ import './TopBar.css'
 
 const TopBar = ({ cartItemLen, muiTheme }) => {
   return (
-    <AppBar style={{cursor: 'pointer', backgroundColor: muiTheme.palette.primary1Color}} className="appBar" title="Shopping go" onTitleTouchTap={() => browserHistory.push('/')}>
+    <AppBar style={{cursor: 'pointer', backgroundColor: muiTheme.palette.primary1Color}}
+    className="appBar"
+    title="Rufina"
+    titleStyle={{fontWeight: 'bold'}}
+    onTitleTouchTap={() => browserHistory.push('/')}>
       <Link to='/cart'>
         <BadgeCart cartItemLen={cartItemLen} />
       </Link>
     </AppBar>
   )
+}
+
+TopBar.PropTypes = {
+  cartItemLen: PropTypes.number,
+  muiTheme: PropTypes.shape({
+    palette: PropTypes.object
+  })
 }
 
 export default muiThemeable()(TopBar)
