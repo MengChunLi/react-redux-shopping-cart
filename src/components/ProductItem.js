@@ -17,14 +17,10 @@ const ProductItem = ({ product, onAddToCartClicked }) => {
         className="addToCart"
         backgroundColor="white"
         iconStyle={{color: "#333"}}
-        // icon={<i className="material-icons md-light">add_shopping_cart</i>}
-        // label={product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
-        // labelStyle={{color: 'white', fontSize: '12px'}}
-        // buttonStyle={{borderRadius: '50%'}}
         onClick={onAddToCartClicked}
         disabled={product.inventory > 0 ? false : true}>
         <i className="material-icons md-light">add_shopping_cart</i>
-    </FloatingActionButton>
+      </FloatingActionButton>
   </div>
   )
 }

@@ -9,12 +9,13 @@ import ProductsList from '../components/ProductsList'
 const ProductsContainer = ({ products, addToCart, seeDetail }) => (
   <ProductsList title="Products">
       {products.map(product =>
-        <Link to={`/detail/${product.id}`} onClick={() => seeDetail(product.id)}>
+        <div key={product.id}>
+        <Link to={`/detail/${product.id}`} onTouchTap={() => seeDetail(product.id)}>
         <ProductItem
-          key={product.id}
           product={product}
           onAddToCartClicked={(e) => addToCart(e, product.id)} />
         </Link>
+        </div>
       )}
     </ProductsList>
 )
@@ -26,16 +27,17 @@ ProductsContainer.propTypes = {
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
   })).isRequired,
-  addToCart: PropTypes.func.isRequired
+  addToCart: PropTypes.func.isRequired,
+  seeDetail: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+  // console.log(state);
   return {
     products: getVisibleProducts(state.products)
   }
 }
 
 export default connect(
-  mapStateToProps, { addToCart }
+  mapStateToProps, { addToCart, seeDetail }
 )(ProductsContainer)

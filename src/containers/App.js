@@ -33,7 +33,7 @@ injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: 'black',
+    primary1Color: '#000',
     textColor: "#333",
   },
   appBar: {

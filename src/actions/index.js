@@ -25,6 +25,15 @@ export const addToCart = (e, productId) => (dispatch, getState) => {
   }
 }
 
+const removeFromCartAction = productId => ({
+  type: types.REMOVE_FROM_CART,
+  productId
+})
+
+export const removeFromCart = (productId) => (dispatch) => {
+  dispatch(removeFromCartAction(productId))
+}
+
 const seeDetailProduct = detail => ({
   type: types.SEE_DETAIL,
   detail

@@ -1,6 +1,7 @@
 .ProductCart {
     display: flex;
     padding: 0 8px;
+    margin-bottom: 10px;
 
     .prodImg {
         display: block;
@@ -11,10 +12,30 @@
         background-size: cover;
         margin-right: 8px;
     }
+    .rightBox {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center
+    }
+    .removeFromCart {
+        top: -15px;
+        right: -15px;
+    }
     .prodTitle {
-        font-size: 13px;
+        font-size: 15px;
         margin: 0;
     }
+    .rightBtmBox {
+        display: flex;
+        justify-content: space-between;
+    }
     .price {
+        font-size: 13px;
+    }
+    .quantity {
+        font-size: 13px;
+        color: "#ddd"
     }
 }
