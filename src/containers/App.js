@@ -5,15 +5,15 @@ import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducer from '../reducers'
 import { getAllProducts, seeDetail } from '../actions'
-
 import { Router, Route, hashHistory } from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import Home from './Home'
 import CartContainer from './CartContainer'
 import DetailContainer from './DetailContainer'
-import 'normalize.css'
+import FavoriteContainer from './FavoriteContainer'
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import 'normalize.css'
 
 const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
@@ -56,6 +56,7 @@ const App = () => (
         <Route path="/" component={Home} />
         <Route path="/home" component={Home} />
         <Route path="/cart" component={CartContainer} />
+        <Route path="/favorite" component={FavoriteContainer} />
         <Route path="/detail/:productId" component={DetailContainer} onEnter={nextState => store.dispatch(seeDetail(nextState.params.productId))}/>
       </Router>
     </MuiThemeProvider>

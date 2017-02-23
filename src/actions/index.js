@@ -61,7 +61,6 @@ const addToCartUnsafe = productId => ({
 
 export const addToCart = (e, productId) => (dispatch, getState) => {
   e.preventDefault()
-    // e.stopPropagation()
   if (getState().products.byId[productId].inventory > 0) {
     dispatch(addToCartUnsafe(productId))
   }
@@ -77,13 +76,36 @@ export const removeFromCart = (productId) => (dispatch, getState) => {
   dispatch(removeFromCartAction(productId, getState().cart.quantityById[productId]))
 }
 
+export const addToFavorite = (e, checked, productId) => (dispatch, getState) => {
+  e.stopPropagation()
+  if (checked) {
+    dispatch({
+      type: types.ADD_TO_FAVORITE,
+      productId
+    })
+  } else {
+    dispatch({
+      type: types.REMOVE_FROM_FAVORITE,
+      productId
+    })
+  }
+}
+
+export const removeFromFavorite = (productId) => (dispatch, getState) => {
+  dispatch({
+    type: types.REMOVE_FROM_FAVORITE,
+    productId
+  })
+}
+
 const seeDetailProduct = (detail, inventory) => ({
   type: types.SEE_DETAIL,
   detail,
   inventory
 })
 
-export const seeDetail = productId => (dispatch, getState) => {
+export const seeDetail = (productId) => (dispatch, getState) => {
+  // e.preventDefault()
   shop.getDetail(productId, (detail) => {
     dispatch(seeDetailProduct(detail, getState().products.byId[productId].inventory))
   })

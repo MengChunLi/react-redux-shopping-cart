@@ -1,0 +1,41 @@
+.ProductFavorite {
+    display: flex;
+    padding: 0 8px;
+    margin-bottom: 10px;
+
+    .prodImg {
+        display: block;
+        width: 100px;
+        height: 90px;
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        background-size: cover;
+        margin-right: 8px;
+    }
+    .rightBox {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center
+    }
+    .removeFromCart {
+        top: -15px;
+        right: -15px;
+    }
+    .prodTitle {
+        font-size: 15px;
+        margin: 0;
+    }
+    .rightBtmBox {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
+    .price {
+        font-size: 15px;
+        color: #D01345;
+        font-weight: 800;
+        margin-top: 5px;
+    }
+}

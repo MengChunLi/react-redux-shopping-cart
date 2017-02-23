@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addToCart } from '../actions'
+import { addToCart, addToFavorite } from '../actions'
 import ProductItem from '../components/ProductItem'
 import ProductContent from '../components/ProductContent'
 import Wrapper from './partial/Wrapper'
 
-const DetailContainer = ({ product, addToCart }) => (
+const DetailContainer = ({ product, addToCart, addToFavorite }) => (
   <Wrapper selectedIndex={0}>
     <ProductItem
       ImgStyle={{ height: '300px' }}
       product={product}
+      onAddToFavoriteClicked={(e, checked) => addToFavorite(e, checked, product.id)}
       onAddToCartClicked={(e) => addToCart(e, product.id)} />
       <ProductContent content={product.content}/>
     </Wrapper>
@@ -26,7 +27,8 @@ DetailContainer.propTypes = {
       brand: PropTypes.string.isRequired
     }).isRequired
   }).isRequired,
-  addToCart: PropTypes.func.isRequired
+  addToCart: PropTypes.func.isRequired,
+  addToFavorite: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {
@@ -34,5 +36,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(
-  mapStateToProps, { addToCart }
+  mapStateToProps, { addToCart, addToFavorite }
 )(DetailContainer)

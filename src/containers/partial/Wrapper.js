@@ -38,6 +38,7 @@ class Wrapper extends React.Component {
           <BottomNavigation selectedIndex={selectedIndex}>
             <BottomNavigationItem onTouchTap={() => hashHistory.push('/')} icon={<FontIcon className="material-icons md-light">home</FontIcon>} label="home"/>
             <BottomNavigationItem onTouchTap={() => hashHistory.push('/cart')} icon={<BadgeCartTab color={selectedIndex === 1 ? "black" : "rgba(0, 0, 0, 0.54)"} cartItemLen={cartItemLen}/>} label="cart"/>
+            <BottomNavigationItem onTouchTap={() => hashHistory.push('/favorite')} icon={<FontIcon className="material-icons md-light">favorite</FontIcon>} label="favorite"/>
           </BottomNavigation>
         </Paper>
       </Paper>

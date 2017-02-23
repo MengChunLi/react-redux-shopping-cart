@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react'
+// import SvgIcon from 'material-ui/SvgIcon'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
+import Checkbox from 'material-ui/Checkbox'
 import Product from './Product'
 import './ProductItem.css'
 
-const ProductItem = ({ product, onAddToCartClicked, ImgStyle }) => {
+const ProductItem = ({ product, onAddToCartClicked, onAddToFavoriteClicked, ImgStyle }) => {
   return (
     <div className="prodBox">
       <Product
@@ -25,6 +27,9 @@ const ProductItem = ({ product, onAddToCartClicked, ImgStyle }) => {
           <div className="out">OUT</div>
         </div>}
       </FloatingActionButton>
+      <div className="addFavorite" onClick={e => e.preventDefault()}>
+        <Checkbox onCheck={(e, checked) => onAddToFavoriteClicked(e, checked)}/>
+      </div>
   </div>
   )
 }
@@ -37,6 +42,7 @@ ProductItem.propTypes = {
     inventory: PropTypes.number.isRequired
   }).isRequired,
   onAddToCartClicked: PropTypes.func.isRequired,
+  onAddToFavoriteClicked: PropTypes.func.isRequired,
   ImgStyle: PropTypes.object
 }
 

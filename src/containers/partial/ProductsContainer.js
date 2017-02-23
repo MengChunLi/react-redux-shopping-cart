@@ -1,18 +1,19 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { addToCart, seeDetail } from '../../actions'
+import { addToCart, addToFavorite, seeDetail } from '../../actions'
 import { getVisibleProducts } from '../../reducers/products'
 import ProductItem from '../../components/ProductItem'
 import ProductsList from '../../components/ProductsList'
 
-const ProductsContainer = ({ products, addToCart, seeDetail }) => (
+const ProductsContainer = ({ products, addToCart, addToFavorite, seeDetail }) => (
   <ProductsList title="Products">
       {products.map(product =>
         <div key={product.id}>
-        <Link to={`/detail/${product.id}`} onTouchTap={() => seeDetail(product.id)}>
+        <Link to={`/detail/${product.id}`} onClick={() => seeDetail(product.id)}>
         <ProductItem
           product={product}
+          onAddToFavoriteClicked={(e, checked) => addToFavorite(e, checked, product.id)}
           onAddToCartClicked={(e) => addToCart(e, product.id)} />
         </Link>
         </div>
@@ -27,6 +28,7 @@ ProductsContainer.propTypes = {
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
   })).isRequired,
+  addToFavorite: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
   seeDetail: PropTypes.func.isRequired,
 }
@@ -39,5 +41,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(
-  mapStateToProps, { addToCart, seeDetail }
+  mapStateToProps, { addToCart, seeDetail, addToFavorite }
 )(ProductsContainer)
