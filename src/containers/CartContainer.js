@@ -7,7 +7,7 @@ import Cart from '../components/Cart'
 
 const CartContainer = ({ products, total, checkout, removeFromCart, changeQty }) => (
   <Wrapper selectedIndex={1}>
-    <div style={{padding: '8px'}}>
+    <div style={{padding: '15px'}}>
       <Cart
         products={products}
         total={total}

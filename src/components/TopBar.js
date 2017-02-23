@@ -8,10 +8,11 @@ import './TopBar.css'
 const TopBar = ({ cartItemLen, muiTheme }) => {
   return (
     <AppBar style={{cursor: 'pointer', backgroundColor: muiTheme.palette.primary1Color}}
-    className="appBar"
-    title="Rufina"
-    titleStyle={{fontWeight: 'bold'}}
-    onTitleTouchTap={() => browserHistory.push('/')}>
+      iconElementLeft={<i></i>}
+      className="appBar"
+      title="Rufina"
+      titleStyle={{fontWeight: 'bold'}}
+      onTitleTouchTap={() => browserHistory.push('/')}>
       <Link to='/cart'>
         <BadgeCart cartItemLen={cartItemLen} />
       </Link>

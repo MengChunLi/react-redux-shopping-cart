@@ -77,14 +77,15 @@ export const removeFromCart = (productId) => (dispatch, getState) => {
   dispatch(removeFromCartAction(productId, getState().cart.quantityById[productId]))
 }
 
-const seeDetailProduct = detail => ({
+const seeDetailProduct = (detail, inventory) => ({
   type: types.SEE_DETAIL,
-  detail
+  detail,
+  inventory
 })
 
-export const seeDetail = productId => (dispatch) => {
+export const seeDetail = productId => (dispatch, getState) => {
   shop.getDetail(productId, (detail) => {
-    dispatch(seeDetailProduct(detail))
+    dispatch(seeDetailProduct(detail, getState().products.byId[productId].inventory))
   })
 }
 
