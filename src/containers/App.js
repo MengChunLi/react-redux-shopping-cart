@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import reducer from '../reducers'
 import { getAllProducts, seeDetail } from '../actions'
 
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, hashHistory } from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import Home from './Home'
@@ -45,7 +45,7 @@ const muiTheme = getMuiTheme({
 const App = () => (
   <Provider store={store}>
     <MuiThemeProvider muiTheme={muiTheme}>  
-      <Router history={browserHistory}>
+      <Router history={hashHistory}>
         <Route path="/" component={Home} />
         <Route path="/home" component={Home} />
         <Route path="/cart" component={CartContainer} />

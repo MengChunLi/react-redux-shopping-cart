@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { browserHistory, Link } from 'react-router'
+import { hashHistory, Link } from 'react-router'
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import AppBar from 'material-ui/AppBar'
 import BadgeCart from './BadgeCart'
@@ -12,7 +12,7 @@ const TopBar = ({ cartItemLen, muiTheme }) => {
       className="appBar"
       title="Rufina"
       titleStyle={{fontWeight: 'bold'}}
-      onTitleTouchTap={() => browserHistory.push('/')}>
+      onTitleTouchTap={() => hashHistory.push('/')}>
       <Link to='/cart'>
         <BadgeCart cartItemLen={cartItemLen} />
       </Link>

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
 import Paper from 'material-ui/Paper'
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import { getAddedIdsLen } from '../../reducers'
 import TopBarContainer from './TopBarContainer'
 import FontIcon from 'material-ui/FontIcon'
@@ -36,8 +36,8 @@ class Wrapper extends React.Component {
         <div className="content" style={{height: `${height-106}px`}}>{children}</div>
         <Paper className="bottom">
           <BottomNavigation selectedIndex={selectedIndex}>
-            <BottomNavigationItem onTouchTap={() => browserHistory.push('/')} icon={<FontIcon className="material-icons md-light">home</FontIcon>} label="home"/>
-            <BottomNavigationItem onTouchTap={() => browserHistory.push('/cart')} icon={<BadgeCartTab color={selectedIndex === 1 ? "black" : "rgba(0, 0, 0, 0.54)"} cartItemLen={cartItemLen}/>} label="cart"/>
+            <BottomNavigationItem onTouchTap={() => hashHistory.push('/')} icon={<FontIcon className="material-icons md-light">home</FontIcon>} label="home"/>
+            <BottomNavigationItem onTouchTap={() => hashHistory.push('/cart')} icon={<BadgeCartTab color={selectedIndex === 1 ? "black" : "rgba(0, 0, 0, 0.54)"} cartItemLen={cartItemLen}/>} label="cart"/>
           </BottomNavigation>
         </Paper>
       </Paper>
