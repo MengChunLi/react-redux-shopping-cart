@@ -39,7 +39,7 @@ const muiTheme = getMuiTheme({
   },
   appBar: {
     height: 50,
-  },
+  }
 })
 
 const App = () => (

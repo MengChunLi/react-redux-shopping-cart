@@ -14,11 +14,15 @@ const ProductItem = ({ product, onAddToCartClicked }) => {
       <FloatingActionButton
         mini
         className="addToCart"
-        backgroundColor="white"
+        backgroundColor={product.inventory > 0 ? '#fff' : '#666'}
         iconStyle={{color: "#333"}}
         onClick={onAddToCartClicked}
         disabled={product.inventory > 0 ? false : true}>
-        <i className="material-icons md-light">add_shopping_cart</i>
+        {product.inventory > 0 ?<i className="material-icons md-light">add_shopping_cart</i>:
+        <div>
+          <div className="sold">SOLD</div>
+          <div className="out">OUT</div>
+        </div>}
       </FloatingActionButton>
   </div>
   )

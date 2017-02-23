@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QTY } from '../constants/ActionTypes'
+import { RECEIVE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QTY, SELECT_SORT_DEFAULT, SELECT_SORT_BY_VALUE_INC, SELECT_SORT_BY_VALUE_DEC } from '../constants/ActionTypes'
 
 const products = (state, action) => {
   switch (action.type) {
@@ -47,8 +47,19 @@ const byId = (state = {}, action) => {
 
 const visibleIds = (state = [], action) => {
   switch (action.type) {
+    case SELECT_SORT_DEFAULT:
     case RECEIVE_PRODUCTS:
       return action.products.map(product => product.id)
+    case SELECT_SORT_BY_VALUE_INC:
+      {
+        let products = [...action.products]; // 避免sort()改變了原本action.products的值
+        return products.sort((a, b) => a.price - b.price).map(product => product.id)
+      }
+    case SELECT_SORT_BY_VALUE_DEC:
+      {
+        let products = [...action.products]; // 避免sort()改變了原本action.products的值
+        return products.sort((a, b) => b.price - a.price).map(product => product.id)
+      }
     default:
       return state
   }

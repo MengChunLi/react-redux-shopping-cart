@@ -13,7 +13,7 @@ class Wrapper extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { height: '0px' };
+    this.state = { height: 700 };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
   componentDidMount() {
@@ -31,9 +31,9 @@ class Wrapper extends React.Component {
     const { selectedIndex, children, cartItemLen } = this.props
     const { height } = this.state
     return (
-      <div className="container" style={{height}}>
+      <div className="container" style={{height: `${height}px`}}>
         <TopBarContainer />
-        <div className="content" style={{height: height-106}}>{children}</div>
+        <div className="content" style={{height: `${height-106}px`}}>{children}</div>
         <Paper className="bottom">
           <BottomNavigation selectedIndex={selectedIndex}>
             <BottomNavigationItem onTouchTap={() => browserHistory.push('/')} icon={<FontIcon className="material-icons md-light">home</FontIcon>} label="home"/>

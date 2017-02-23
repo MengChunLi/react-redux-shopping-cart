@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
+import sort from './sort'
 import detail from './detail'
 import cart, * as fromCart from './cart'
 import products, * as fromProducts from './products'
 
 export default combineReducers({
+  sort,
   cart,
   products,
   detail

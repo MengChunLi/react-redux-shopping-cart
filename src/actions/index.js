@@ -12,6 +12,48 @@ export const getAllProducts = () => dispatch => {
   })
 }
 
+export const onSelectSort = val => dispatch => {
+  switch (val) {
+    case 0:
+      shop.getProducts(products => {
+        dispatch({
+          type: types.SELECT_SORT_DEFAULT,
+          val,
+          products
+        })
+      })
+      break;
+    case 1:
+      shop.getProducts(products => {
+        dispatch({
+          type: types.SELECT_SORT_BY_VALUE_INC,
+          val,
+          products
+        })
+      })
+      break;
+    case 2:
+      shop.getProducts(products => {
+        dispatch({
+          type: types.SELECT_SORT_BY_VALUE_DEC,
+          val,
+          products
+        })
+      })
+      break;
+    default:
+      shop.getProducts(products => {
+        dispatch({
+          type: types.SELECT_SORT_DEFAULT,
+          val,
+          products
+        })
+      })
+      break;
+  }
+
+}
+
 const addToCartUnsafe = productId => ({
   type: types.ADD_TO_CART,
   productId
