@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
 import Paper from 'material-ui/Paper'
 import { browserHistory } from 'react-router'
-import { getAddedIdsLen } from '../reducers'
+import { getAddedIdsLen } from '../../reducers'
 import TopBarContainer from './TopBarContainer'
 import FontIcon from 'material-ui/FontIcon'
-import BadgeCartTab from '../components/BadgeCartTab'
+import BadgeCartTab from '../../components/BadgeCartTab'
 import './Wrapper.css'
 
 class Wrapper extends React.Component {
@@ -31,7 +31,7 @@ class Wrapper extends React.Component {
     const { selectedIndex, children, cartItemLen } = this.props
     const { height } = this.state
     return (
-      <div className="container" style={{height: `${height}px`}}>
+      <Paper className="container" style={{height: `${height}px`}}>
         <TopBarContainer />
         <div className="content" style={{height: `${height-106}px`}}>{children}</div>
         <Paper className="bottom">
@@ -40,7 +40,7 @@ class Wrapper extends React.Component {
             <BottomNavigationItem onTouchTap={() => browserHistory.push('/cart')} icon={<BadgeCartTab color={selectedIndex === 1 ? "black" : "rgba(0, 0, 0, 0.54)"} cartItemLen={cartItemLen}/>} label="cart"/>
           </BottomNavigation>
         </Paper>
-      </div>
+      </Paper>
     )
   }
 }

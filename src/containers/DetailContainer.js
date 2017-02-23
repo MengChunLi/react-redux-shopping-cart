@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addToCart } from '../actions'
 import ProductItem from '../components/ProductItem'
-import Wrapper from './Wrapper'
+import Wrapper from './partial/Wrapper'
 
 const DetailContainer = ({ product, addToCart }) => (
   <Wrapper selectedIndex={0}>

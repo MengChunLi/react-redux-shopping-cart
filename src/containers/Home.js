@@ -1,11 +1,11 @@
 import React from 'react'
-import ProductsContainer from './ProductsContainer'
-import Wrapper from './Wrapper'
-import ProdToolbarContainer from './ProdToolbarContainer'
+import ProductsContainer from './partial/ProductsContainer'
+import Wrapper from './partial/Wrapper'
+import ProdToolbarContainer from './partial/ProdToolbarContainer'
 
 
 const Home = () => (
-  <div>
+	<div>
     <Wrapper selectedIndex={0}>
       <ProdToolbarContainer />
       <ProductsContainer />

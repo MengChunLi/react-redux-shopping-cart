@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { addToCart, seeDetail } from '../actions'
-import { getVisibleProducts } from '../reducers/products'
-import ProductItem from '../components/ProductItem'
-import ProductsList from '../components/ProductsList'
+import { addToCart, seeDetail } from '../../actions'
+import { getVisibleProducts } from '../../reducers/products'
+import ProductItem from '../../components/ProductItem'
+import ProductsList from '../../components/ProductsList'
 
 const ProductsContainer = ({ products, addToCart, seeDetail }) => (
   <ProductsList title="Products">

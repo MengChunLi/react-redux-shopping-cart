@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { checkout, removeFromCart, changeQty } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
-import Wrapper from './Wrapper'
+import Wrapper from './partial/Wrapper'
 import Cart from '../components/Cart'
 
 const CartContainer = ({ products, total, checkout, removeFromCart, changeQty }) => (
