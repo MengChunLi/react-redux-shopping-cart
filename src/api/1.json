@@ -4,5 +4,8 @@
 	"price": 500.01,
 	"inventory": 2,
 	"img": "https://goo.gl/3PD40E",
-	"content": "This tutorial is the final of a three-part series by Brad Westfall. We'll learn how to manage state across an entire application efficiently and in a way that can scale without dangerous complexity. We've come so far in our React journey, it's worth making it across the finish line here and getting the full bang-for-our-buck out of this development approach."
+	"content": {
+		"details": ["Soft-touch stretch cotton jersey", "Bardot neck", "Tie sleeve detail", "Relaxed fit", "Designed to fit through all stages of pregnancy"],
+		"brand": "Maternity dressing gets bumped up to next-level status with the Maternity edit. Designed by the London-based team to fit you from three months onwards, you can grow your wardrobe alongside your bump with maternity clothes in (UK) sizes 6-20, with adjustable fastenings and flexible waistbands. Tick all of your pre- and post-baby boxes with its jersey basics, nursing bras, dresses, denim and outerwear that all get the bump-friendly treatment."
+	}
 }

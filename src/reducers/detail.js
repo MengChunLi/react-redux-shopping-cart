@@ -6,7 +6,10 @@ const initState = {
 	"price": 0,
 	"inventory": 0,
 	"img": "",
-	"content": ""
+	"content": {
+		"details": [],
+		"brand": ""
+	}
 }
 
 const detail = (state = initState, action) => {

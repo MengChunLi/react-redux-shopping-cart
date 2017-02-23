@@ -3,11 +3,12 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Product from './Product'
 import './ProductItem.css'
 
-const ProductItem = ({ product, onAddToCartClicked }) => {
+const ProductItem = ({ product, onAddToCartClicked, ImgStyle }) => {
   return (
     <div className="prodBox">
       <Product
         img={product.img}
+        ImgStyle={ImgStyle}
         title={product.title}
         price={product.price}
         inventory={product.inventory} />
@@ -35,7 +36,8 @@ ProductItem.propTypes = {
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
   }).isRequired,
-  onAddToCartClicked: PropTypes.func.isRequired
+  onAddToCartClicked: PropTypes.func.isRequired,
+  ImgStyle: PropTypes.object
 }
 
 export default ProductItem
