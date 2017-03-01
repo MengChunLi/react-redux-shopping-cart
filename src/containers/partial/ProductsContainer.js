@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { addToCart, addToFavorite, seeDetail } from '../../actions'
-import { getVisibleProducts } from '../../reducers/products'
+import { getVisibleProductsWithFavorite } from '../../reducers'
 import ProductItem from '../../components/ProductItem'
 import ProductsList from '../../components/ProductsList'
 
@@ -26,7 +26,7 @@ ProductsContainer.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    inventory: PropTypes.number.isRequired
+    inventory: PropTypes.number.isRequired,
   })).isRequired,
   addToFavorite: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
@@ -36,7 +36,7 @@ ProductsContainer.propTypes = {
 const mapStateToProps = state => {
   // console.log(state);
   return {
-    products: getVisibleProducts(state.products)
+    products: getVisibleProductsWithFavorite(state)
   }
 }
 

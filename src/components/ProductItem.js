@@ -28,7 +28,7 @@ const ProductItem = ({ product, onAddToCartClicked, onAddToFavoriteClicked, ImgS
         </div>}
       </FloatingActionButton>
       <div className="addFavorite" onClick={e => e.preventDefault()}>
-        <Checkbox onCheck={(e, checked) => onAddToFavoriteClicked(e, checked)}/>
+        <Checkbox onCheck={(e, checked) => onAddToFavoriteClicked(e, checked)} checked={product.isFavorite}/>
       </div>
   </div>
   )
@@ -39,7 +39,8 @@ ProductItem.propTypes = {
     img: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    inventory: PropTypes.number.isRequired
+    inventory: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
   }).isRequired,
   onAddToCartClicked: PropTypes.func.isRequired,
   onAddToFavoriteClicked: PropTypes.func.isRequired,

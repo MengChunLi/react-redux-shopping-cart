@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QTY, SELECT_SORT_DEFAULT, SELECT_SORT_BY_VALUE_INC, SELECT_SORT_BY_VALUE_DEC } from '../constants/ActionTypes'
+import { RECEIVE_PRODUCTS, ADD_TO_CART, ADD_TO_FAVORITE, REMOVE_FROM_CART, CHANGE_QTY, SELECT_SORT_DEFAULT, SELECT_SORT_BY_VALUE_INC, SELECT_SORT_BY_VALUE_DEC } from '../constants/ActionTypes'
 
 const products = (state, action) => {
   switch (action.type) {
@@ -18,8 +18,15 @@ const products = (state, action) => {
         ...state,
         inventory: state.inventory - action.qtyDiff //改變購物車商品數量，要修改庫存
       }
+    case ADD_TO_FAVORITE:
+      return {
+        ...state,
+        isFavorite: true
+      }
     default:
-      return state
+      return {...state,
+        isFavorite: false
+      }
   }
 }
 

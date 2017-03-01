@@ -44,8 +44,8 @@ const checkedById = (state = initialState.checkedById, action) => {
   }
 }
 
-export const getChecked = (state, productId) =>
-  state.checkedById[productId] || 0
+export const getCheckedById = (state, productId) =>
+  state.checkedById[productId] || false
 
 
 const favorite = (state = initialState, action) => {

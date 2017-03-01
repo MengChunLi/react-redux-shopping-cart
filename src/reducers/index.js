@@ -15,8 +15,9 @@ export default combineReducers({
 
 const getFavoriteIds = state => fromFavorite.getAddedIds(state.favorite)
 const getAddedIds = state => fromCart.getAddedIds(state.cart)
+const getVisibleProducts = state => fromProducts.getVisibleProducts(state.products)
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
-export const getChecked = (state, id) => fromFavorite.getChecked(state.favorite, id)
+export const getCheckedById = (state, id) => fromFavorite.getCheckedById(state.favorite, id)
 
 export const getProduct = (state, id) => fromProducts.getProduct(state.products, id)
 
@@ -33,6 +34,10 @@ export const getCartProducts = state =>
     ...getProduct(state, id),
     quantity: getQuantity(state, id)
   }))
+
+//結合api的靜態產品資料和動態的收藏狀態
+export const getVisibleProductsWithFavorite = state =>
+  getVisibleProducts(state).map(product => ({...product, isFavorite: getCheckedById(state, product.id) }))
 
 
 export const getFavoriteProducts = state =>
